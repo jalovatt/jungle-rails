@@ -1,5 +1,7 @@
 class Admin::ProductsController < ApplicationController
 
+  include AdminOnly
+
   def index
     @products = Product.order(id: :desc).all
   end

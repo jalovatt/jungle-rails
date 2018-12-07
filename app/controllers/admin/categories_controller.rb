@@ -1,5 +1,7 @@
 class Admin::CategoriesController < ApplicationController
 
+  include AdminOnly
+
   def index
     @categories = Category.order(id: :desc).all
   end
