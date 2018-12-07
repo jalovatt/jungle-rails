@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true
 
+  has_many :reviews
+
   before_save { self.email = email.downcase }
 
   has_secure_password

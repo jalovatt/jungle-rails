@@ -132,15 +132,50 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-puts "Re-creating Users ..."
+puts "Adding Users ..."
 
 User.destroy_all
 
 User.create!({
   first_name: "Bob",
-  last_name: "Bob",
-  email: "bob@bob.bob",
+  last_name: "Loblaw",
+  email: "loblaw@law.blog",
   password: "bob"
 })
+
+10.times do
+
+  first = Faker::Name.first_name
+  last = Faker::Name.last_name
+
+  User.create!({
+    first_name: first,
+    last_name: last,
+    email: Faker::Internet.safe_email("#{first} #{last}"),
+    password: Faker::Internet.password(8)
+  })
+
+end
+
+puts "Adding Reviews..."
+
+Review.destroy_all
+
+def rand_time(from, to=Time.now)
+  Time.at(Faker::Base.rand_in_range(from.to_f, to.to_f))
+end
+
+40.times do
+# Faker::Hipster.paragraph(4)
+
+  Review.create!({
+    product_id: Product.offset(rand(Product.count)).first.id,
+    user_id: User.offset(rand(User.count)).first.id,
+    text: Faker::Hipster.paragraph(1),
+    rating: rand(4) + 1,
+    created_at: rand_time(3.years.ago)
+  })
+
+end
 
 puts "DONE!"

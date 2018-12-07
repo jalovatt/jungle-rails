@@ -1,0 +1,8 @@
+
+<tr>
+  <td><%= "#{review.user.first_name} #{review.user.last_name}" %></td>
+  <td><%= review.created_at.strftime('%m/%d%Y') %><br>
+      <%= review.created_at.strftime("at %I:%M%p") %></td>
+  <td><%= review.rating %>/5</td>
+  <td><%= review.text %></td>
+</tr>
