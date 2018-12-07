@@ -1,0 +1,10 @@
+Thank you for shopping with us!
+
+Your order is being processed, and we will let you know as soon as it ships.
+
+Items:
+<% @order.line_items.each do |item| %>
+  <%= item.product.name %>: <%= item.quantity %> @ <% item.item_price_cents / 100.00 %> --> <%= item.total_price_cents / 100.00 %>
+<% end %>
+
+Your total: <%= @order.total_cents / 100.0 %>
