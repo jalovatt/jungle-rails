@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    puts cart
     charge = perform_stripe_charge
     order  = create_order(charge)
 

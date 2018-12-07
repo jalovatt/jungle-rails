@@ -1,7 +1,5 @@
 module AdminOnly extend ActiveSupport::Concern
 
-  USER = {ENV["ADMIN_USERNAME"] => ENV["ADMIN_PASSWORD"]}
-
   included do
     before_action :authenticate
   end
