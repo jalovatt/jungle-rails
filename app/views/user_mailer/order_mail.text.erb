@@ -1,6 +1,8 @@
-Thank you for shopping with us!
+Thank you for shopping with us<%= @name %>!
 
 Your order is being processed, and we will let you know as soon as it ships.
+
+Order #<%= @order.id %>
 
 Items:
 <% @order.line_items.each do |item| %>

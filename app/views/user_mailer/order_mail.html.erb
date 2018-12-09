@@ -8,10 +8,12 @@
 </head>
 <body>
 
-<h2>Thank you for shopping with us!</h2>
+<h2>Thank you for shopping with us<%= @name %>!</h2>
 <p>
   Your order is being processed, and we will let you know as soon as it ships.
 </p>
+
+<h3>Order #<%= @order.id %></h3>
 
 <table>
   <thead>
