@@ -27,15 +27,17 @@
 
     </div>
 
-    <div class="row">
-      <%= render "reviews/form" %>
-    </div>
+    <% if logged_in? %>
+      <div class="row">
+        <%= render "reviews/form" %>
+      </div>
+    <% end %>
 
     <div class="row">
       <% if !@reviews.empty? %>
         <p>
           <h2>Reviews</h2>
-          <table>
+          <table class="table table-striped">
             <%= render @reviews %>
           </table>
         </p>

@@ -1,22 +1,35 @@
-<section class="user-login">
-  <h1>Log In</h1>
+<section class="session-new">
+  <header class="page-header">
+    <h1>Log In</h1>
+  </header>
 
-  <%= form_for(:session, url: login_path) do |f| %>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+      <%= form_for(:session, url: login_path) do |f| %>
 
-    <p>
-      <%= f.label :email %><br>
-      <%= f.email_field :email %>
-    </p>
+          <% if @error %>
+            <div class="alert alert-danger">
+              <strong>The following errors prevented you from logging in:</strong>
+              <ul>
+                <li><%= @error %></li>
+              </ul>
+            </div>
+          <% end %>
 
-    <p>
-      <%= f.label :password %><br>
-      <%= f.password_field :password %>
-    </p>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
 
-    <p>
-      <%= f.submit "Log In" %>
-    </p>
-  <% end %>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
 
-  <p>New user? <%= link_to "Register here.", [:new_user] %></p>
+          <%= f.submit "Log In", class: "btn btn-primary" %>
+
+          <p>New user? <%= link_to "Register here.", [:new_user] %></p>
+      <% end %>
+    </div>
+  </div>
 </section>
