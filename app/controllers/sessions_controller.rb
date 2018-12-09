@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       remember user
       redirect_to :root
     else
+      @error = "Invalid email/password combination"
       render :new
     end
   end
