@@ -1,6 +1,4 @@
-class Admin::DashboardController < ApplicationController
-
-  include AdminOnly
+class Admin::DashboardController < Admin::BaseController
 
   def show
   end

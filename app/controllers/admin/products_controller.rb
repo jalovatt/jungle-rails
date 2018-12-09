@@ -1,6 +1,4 @@
-class Admin::ProductsController < ApplicationController
-
-  include AdminOnly
+class Admin::ProductsController < Admin::BaseController
 
   def index
     @products = Product.order(id: :desc).all
