@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   attr_accessor :remember_token
 
   validates :first_name, presence: true
@@ -15,7 +14,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  def User.digest(str)
+  def self.digest(str)
     cost = ActiveModel::SecurePassword.min_cost ?
             BCrypt::Engine::MIN_COST :
             BCrypt::Engine.cost
@@ -23,7 +22,7 @@ class User < ActiveRecord::Base
     BCrypt::Password.create(str, cost: cost)
   end
 
-  def User.new_token
+  def self.new_token
     SecureRandom.urlsafe_base64
   end
 
@@ -39,5 +38,4 @@ class User < ActiveRecord::Base
   def forget
     update_attribute(:remember_digest, nil)
   end
-
 end

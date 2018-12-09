@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def show
     @order = Order.find(params[:id])
   end
@@ -57,5 +56,4 @@ class OrdersController < ApplicationController
     order.save!
     order
   end
-
 end

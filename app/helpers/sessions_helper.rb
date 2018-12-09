@@ -1,5 +1,4 @@
 module SessionsHelper
-
   # Logs in the given user
   def log_in(user)
     session[:user_id] = user.id
@@ -38,5 +37,4 @@ module SessionsHelper
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
-
 end

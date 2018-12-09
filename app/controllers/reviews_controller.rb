@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   before_filter :logged_in?
 
   def create
@@ -7,12 +6,8 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.create(review_params)
     @review.user = current_user
 
-    if @review.save
-      redirect_to product_path(@product)
-    else
-      # How do we display a warning message?
-      redirect_to product_path(@product)
-    end
+    @review.save
+    redirect_to product_path(@product)
   end
 
   def destroy
