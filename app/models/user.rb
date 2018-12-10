@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
-  validates :password, presence: true
+  validates :password, presence: true, length: { minimum: 8 }
 
   has_many :reviews
 
@@ -38,4 +38,10 @@ class User < ActiveRecord::Base
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def self.authenticate_with_credentials(email, password)
+    user = User.find_by(email: email.strip.downcase)
+    return user if user&.authenticate(password)
+  end
+
 end

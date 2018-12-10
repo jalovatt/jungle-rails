@@ -3,8 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user&.authenticate(params[:session][:password])
+    if user = User.authenticate_with_credentials(params[:session][:email], params[:session][:password])
       log_in user
       remember user
       redirect_to :root
@@ -18,4 +17,5 @@ class SessionsController < ApplicationController
     log_out
     redirect_to :root
   end
+
 end
