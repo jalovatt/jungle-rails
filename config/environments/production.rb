@@ -77,5 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.show_previews = true
   config.action_mailer.preview_path = "#{Rails.root}/test/mailers/previews"
+  config.autoload_paths += [config.action_mailer.preview_path]
 end

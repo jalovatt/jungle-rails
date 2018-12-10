@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
 
   get "demo/order" => "demo#order"
-  get "demo/email" => "demo#email"
+
+  get "/rails/mailers/*path" => "rails/mailers#preview"
 
   namespace :admin do
     root to: 'dashboard#show'
