@@ -14,6 +14,7 @@ def open_asset(file_name)
 end
 
 # Only run on development (local) instances not on production, etc.
+
 # We need this in production or we won't have any products to show
 # unless Rails.env.development?
 #   puts "Development seeds only (for now)!"
@@ -141,7 +142,7 @@ User.create!({
   first_name: "Bob",
   last_name: "Loblaw",
   email: "loblaw@law.blog",
-  password: "bob"
+  password: "bobloblaw"
 })
 
 10.times do
