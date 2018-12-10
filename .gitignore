@@ -10,7 +10,9 @@
 /tmp
 
 # Ignore carrier wave uploads for development
-/public/uploads
+
+# We need this for the live site to have any images
+# /public/uploads
 
 # Ignore db creds / settings
 /config/database.yml
