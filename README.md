@@ -2,8 +2,26 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+We were given a functioning app and tasked with implementing several new features:
+
+- A user registration system, complete with secure passwords and cookies.
+
+- A "completed order" screen and confirmation email
+
 
 ## Setup
+
+### Live site
+
+A live version of this project can be found at [http://lighthouse-jungle.herokuapp.com/](http://lighthouse-jungle.herokuapp.com/).
+
+A couple of notes:
+
+- Attempting to process an order through Stripe will fail, as this is site is just for testing purposes.
+
+- Feel free to log in as an Admin to add categories or products - username `Jungle`, password `book`.
+
+- Heroku may not let you upload images for new products, however. Again, this site is just a demo.
 
 1. Clone this repository.
 2. Run `bundle install` to install dependencies.
